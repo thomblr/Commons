@@ -1,0 +1,51 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+
+<div>
+    <a href="/commons/accueil/">
+        <button class="btn btn-primary">Retour à l'accueil</button>
+    </a>
+</div>
+
+<h2 class="display-2">Liste des Divisions</h2>
+
+<div>
+    <a href="/commons/divisions/new/">
+        <button class="btn btn-success btn-sm">Ajouter une nouvelle division</button>
+    </a>
+</div>
+
+<div class="liste-divisions container">
+    {{if len(aff_div) > 0:}}
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Numéro Division</th>
+                <th scope="col">Question</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{for div in aff_div:}}
+            <tr class="item-div" onclick="detail_redirect({{=div.id}})">
+                <th scope="row">{{=div.numero}}</th>
+                <td>{{=div.question}}</td>
+                <td>{{=div.date_div}}</td>
+            </tr>
+            {{pass}}
+        </tbody>
+    </table>
+</div>
+
+{{else:}}
+ <h2>Aucune division enregistrée.</h2>
+{{pass}}
+
+</div>
+
+<script>
+function detail_redirect(id_div) {
+    window.location.href = "/commons/divisions/detail/" + id_div;
+}
+</script>

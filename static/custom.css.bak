@@ -1,0 +1,136 @@
+.accueil-contenu, h1, h2, h3, h4 {
+    text-align: center;
+}
+
+.accueil-contenu {
+    position: relative;
+    top: 100px;
+}
+
+.accueil-item {
+    display: inline-block;
+    margin: 25px;
+}
+
+.custom-accueil-btn {
+    padding: 25px;
+    color: #2c3e50;
+}
+
+.custom-accueil-btn:hover {
+    background-color: #2c3e50;
+}
+
+.aff-member {
+    top: 50px;
+    margin-bottom: 150px;
+}
+
+.aff-member-card {
+    margin-top: 25px;
+    cursor: pointer;
+    height: 100px;
+    position: relative;
+    background-color: #ececec;
+    box-shadow: 1px 1px 10px -2px rgba(0,0,0,0.32);
+}
+
+.aff-member-card:hover {
+    background-color: #2c3e50;
+    transition: background-color 0.4s;
+}
+
+.aff-member-card h5 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.aff-member-card:hover h5 {
+    transition: margin-top 0.4s;
+    color: white;
+    margin-top: 4px;
+}
+
+.aff-member-card .plus-detail {
+    margin: 0 65% 0 35%;
+    position: absolute;
+    color: white;
+    top: 50px;
+    display: none;
+}
+
+.aff-member-card:hover .plus-detail {
+    display: inline;
+}
+
+.liste-divisions, .liste-votes {
+    position: relative;
+    top: 50px;
+    margin-bottom: 150px;
+}
+
+.item-div:hover {
+    cursor: pointer;
+}
+
+.vote-results {
+    margin: 0 59% 0 41%;
+}
+
+.infos-div {
+    background-color: #ececec;
+    border-radius: 3px;
+    height: 80px;
+}
+
+.infos-div-vote {
+    height: 80px;
+    width: 60px;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+}
+
+.vote-icon {
+    font-size: 50px !important;
+    position: absolute;
+    top: 15px;
+}
+
+.vote-count {
+    position: absolute;
+}
+
+.vote-type {
+    position: absolute;
+    top: 45px;
+}
+
+.vote-count {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.item-info-div {
+    position: absolute;
+    height: 20px;
+    top: 10px;
+    font-size: 20px;
+}
+
+.item-info-date {
+    position: absolute;
+    height: 20px;
+    top: 40px;
+}
+
+.custom-form {
+    
+}
+
+.input-custom-form{
+    margin: 20px;
+    width: 300px;
+    height: 40px;
+    border-radius: 3px;
+}

@@ -1,0 +1,38 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a href="/commons/accueil/">Accueil</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Membres</li>
+  </ol>
+</nav>
+
+<h2 class="display-2">Liste des Membres</h2>
+
+{{if len(aff_memb) > 0:}}
+<div class="aff-member container">
+    <div class="row">
+        {{for mem in aff_memb:}}
+        <div class="col-sm-3">
+            <div class="aff-member-card card" onclick="detail_mem_redirect({{=mem.id}})">
+                <div class="card-body">
+                    <h5 class="card-title">{{=mem.firstname}} {{=mem.surname}}</h5>
+                    <i class="material-icons plus-detail">add_circle_outline</i>
+                </div>
+            </div>
+        </div>
+        {{pass}}
+    </div>
+</div>
+{{else:}}
+<h2>Aucun membre enregistré.</h2>
+{{pass}}
+
+</div>
+<script>
+function detail_mem_redirect(id_mem) {
+    window.location.href = "/commons/membres/detail/" + id_mem;
+}
+</script>

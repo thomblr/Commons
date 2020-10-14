@@ -1,0 +1,51 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+
+<div>
+    <a href="/commons/membres/liste/">
+        <button class="btn btn-primary">Retour à la liste des membres</button>
+    </a>
+</div>
+
+<h4 class="display-4">
+Détails de membre
+</h4>
+<h3>{{=mem[0].firstname}} {{=mem[0].surname}}</h3>
+
+<div class="liste-votes">
+    {{if len(votes) > 0:}}
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Numéro Division</th>
+                <th scope="col">Question</th>
+                <th scope="col">Date</th>
+                <th scope="col">Affiliation</th>
+                <th scope="col">Vote</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{for vote in votes:}}
+            <tr class="item-div" onclick="detail_div_redirect({{=vote.divisions.id}})">
+                <th scope="row">{{=vote.divisions.numero}}</th>
+                <td>{{=vote.divisions.question}}</td>
+                <td>{{=vote.divisions.date_div}}</td>
+                <td>{{=vote.votes.affiliation}}</td>
+                <td>{{=vote.votes.vote}}</td>
+            </tr>
+            {{pass}}
+        </tbody>
+    </table>
+    {{else:}}
+    <h3 class="lead">Aucun vote enregistré.</h3>
+    {{pass}}
+</div>
+
+</div>
+
+<script>
+function detail_div_redirect(id_div) {
+    window.location.href = "/commons/divisions/detail/" + id_div;
+}
+</script>

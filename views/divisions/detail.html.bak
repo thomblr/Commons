@@ -1,0 +1,71 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item" aria-current="page"><a href="/commons/accueil/">Accueil</a></li>
+    <li class="breadcrumb-item" aria-current="page"><a href="/commons/divisions/liste/">Divisions</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Division {{=div[0].numero}}</li>
+  </ol>
+</nav>
+
+<h3 class="display-3">{{=div[0].question}}</h3>
+
+<br>
+
+<div class="infos-div row">
+    <div class="col-lg-2 offset-lg-1 infos-div-vote">
+        <div class="item-info-div">Division {{=div[0].numero}}</div>
+        <div class="item-info-date"><b>{{=div[0].date_div}}</b></div>
+    </div>
+    <div class="col-lg-2 offset-lg-1">
+        <div class="infos-div-vote">
+            <i class="vote-icon material-icons">thumb_up</i>
+        </div>
+        <div class="infos-div-vote">
+            <div class="vote-count">{{=pour}}</div>
+            <div class="vote-type">Ayes</div>
+        </div>
+    </div>
+    <div class="col-lg-2 offset-lg-1">
+        <div class="infos-div-vote">
+            <i class="vote-icon material-icons">thumb_down</i>
+        </div>
+        <div class="infos-div-vote">
+            <div class="vote-count">{{=contre}}</div>
+            <div class="vote-type">Noes</div>
+        </div>
+    </div>
+</div>
+
+<div class="liste-votes">
+    {{if len(votes) > 0:}}
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Membre</th>
+                <th scope="col">Affiliation</th>
+                <th scope="col">Vote</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{for vote in votes:}}
+            <tr class="item-div" onclick="detail_mem_redirect({{=vote.votes.id_member}})">
+                <td>{{=vote.members.firstname}} {{=vote.members.surname}}</td>
+                <td>{{=vote.votes.affiliation}}</td>
+                <td>{{=vote.votes.vote}}</td>
+            </tr>
+            {{pass}}
+        </tbody>
+    </table>
+    {{else:}}
+    <h3 class="lead">Aucun vote enregistré.</h3>
+    {{pass}}
+</div>
+
+<script>
+function detail_mem_redirect(id_mem) {
+    window.location.href = "/commons/membres/detail/" + id_mem;
+}
+</script>

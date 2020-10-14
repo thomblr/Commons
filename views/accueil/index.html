@@ -1,0 +1,26 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item active" aria-current="page">Accueil</li>
+  </ol>
+</nav>
+
+<h1 class="display-1">Bienvenue sur Commons!</h1>
+
+<div class="accueil-contenu">
+    <div class="accueil-item">
+        <a href="/commons/membres/liste/">
+            <button type="button" class="btn btn-outline-secondary btn-lg custom-accueil-btn">Liste des membres ({{=member_count}})<br><i class="material-icons">group</i></button>
+        </a>
+    </div>
+    <div class="accueil-item">
+        <a href="/commons/divisions/liste/">
+            <button type="button" class="btn btn-outline-secondary btn-lg custom-accueil-btn">Liste des divisions ({{=div_count}})<br><i class="material-icons">account_balance</i></button>
+        </a>
+    </div>
+</div>
+
+</div>
